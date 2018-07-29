@@ -1,2 +1,35 @@
 <h1>Mygenres#edit</h1>
-<p>Find me in app/views/mygenres/edit.html.erb</p>
+
+<% if @mygenre.errors.any? %>
+<ul>
+<% @mygenre.errors.full_messages.each do |err| %>
+<li>
+<%= err %>
+</li>
+<% end %>
+</ul>
+<% end %>
+
+<p>ジャンル編集</p>
+
+<table>
+
+<%= form_for(@mygenre, url:{controller:'mygenres', action:'edit'}) do |form| %>
+<tr>
+   <th>ジャンル名</th>
+   <td>  <%= form.text_field :name %>  </td>
+</tr>
+<tr>
+   <th>メモ</th>
+   <td>  <%= form.text_area :memo, {cols:40, rows:10} %>  </td>
+</tr>
+
+<tr>
+   <th></th>
+   <td>  <%= form.submit '送信' %>  </td>
+</tr>
+<% end %>
+
+</table>
+
+<a href='/mygenres'>戻る</a>

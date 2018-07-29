@@ -1,2 +1,35 @@
 <h1>Myposts#delete</h1>
-<p>Find me in app/views/myposts/delete.html.erb</p>
+
+<p>以下の内容を削除します</p>
+
+<table>
+    <tr>
+        <th width=150px>ID</th>
+        <th width=150px>題名</th>
+        <th width=150px>著者</th>
+        <th width=150px>価格</th>
+        <th width=150px>ジャンルID</th>
+        <th width=300px>内容</th>
+        <th width=150px>画像</th>
+    </tr>
+<%= @mypost.each do |obj| %>
+    <tr>
+        <th><%= obj.id %></th>
+        <th><%= obj.title %></th>
+        <th><%= obj.author %></th>
+        <th><%= obj.price %></th>
+        <th><%= obj.genre_id %></th>
+        <th><%= obj.content %></th>
+        <th></th>
+    </tr>
+    
+
+<%= form_for(@mypost, url:{controller:'myposts', action:'delete'}) do |form| %>
+    <tr>   
+        <th></th>
+        <td>  <%= form.submit '送信' %>  </td>
+    </tr>
+<% end %>
+</table>
+
+<a href='/myposts/add'>新規投稿</a>

@@ -7,7 +7,7 @@ class CreateMyposts < ActiveRecord::Migration[5.1]
       t.integer :genre_id
       t.text :content
 
-      t.timestamps
+      t.timestampsra
     end
   end
 end

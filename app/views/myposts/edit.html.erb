@@ -1,2 +1,63 @@
 <h1>Myposts#edit</h1>
-<p>Find me in app/views/myposts/edit.html.erb</p>
+
+<p>投稿の編集</p>
+
+<% if @mypost.errors.any? %>
+<ul>
+<% @mypost.errors.full_messages.each do |err| %>
+<li>
+<%= err %>
+</li>
+<% end %>
+</ul>
+<% end %>
+
+<table>
+
+<%= form_for(@mypost, url:{controller:'myposts', action:'edit'}) do |form| %>
+<tr>
+   <th>題名</th>
+   <td>  <%= form.text_field :title %>  </td>
+</tr>
+<tr>
+   <th>著者名</th>
+   <td>  <%= form.text_field :author %>  </td>
+</tr>
+<tr>
+   <th>価格</th>
+   <td>  <%= form.number_field :price %>  </td>
+</tr>
+<tr>
+   <th>ジャンルID</th>
+   <td>  <%= form.number_field :genre_id %>  </td>
+</tr>
+<tr>
+   <th>内容</th>
+   <td>  <%= form.text_area :content, {cols:40, rows:10} %>  </td>
+</tr>
+<tr>
+   <th></th>
+   <td>  <%= form.submit '送信' %>  </td>
+</tr>
+<% end %>
+
+</table>
+
+
+<hr>    
+
+<h1>ジャンル一覧</h1>
+<h2>*ジャンルIDはこちらからお選び下さい</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>ジャンル名</th>
+    </tr>
+<% @mygenre.each do |obj| %>
+    <tr>
+        <th><%= obj.id %></th>
+        <td><%= obj.name %></td>
+    </tr>
+<% end %>
+</table>
