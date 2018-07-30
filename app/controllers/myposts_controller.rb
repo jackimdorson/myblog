@@ -1,4 +1,7 @@
 class MypostsController < ApplicationController
+  
+  layout = 'myposts'
+  
   def index
     @mypost = Mypost.all.order('created_at desc')
   end

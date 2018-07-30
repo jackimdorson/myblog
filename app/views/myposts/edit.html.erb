@@ -1,6 +1,4 @@
-<h1>Myposts#edit</h1>
-
-<p>投稿の編集</p>
+<h1>投稿の編集</h1>
 
 <% if @mypost.errors.any? %>
 <ul>
@@ -43,15 +41,16 @@
 
 </table>
 
+<a href='/myposts'>[ 戻る ]</a>
 
 <hr>    
 
-<h1>ジャンル一覧</h1>
-<h2>*ジャンルIDはこちらからお選び下さい</h2>
+<h3>ジャンル一覧</h3>
+<h5 style=color:red>*ジャンルIDはこちらからお選び下さい</h5>
 
 <table>
     <tr>
-        <th>ID</th>
+        <th width=30px>ID</th>
         <th>ジャンル名</th>
     </tr>
 <% @mygenre.each do |obj| %>

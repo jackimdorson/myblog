@@ -1,0 +1,14 @@
+ja:
+ activerecord:
+ models:
+ attributes:
+ user:
+
+ title: 題名
+ author: 著者名
+ price: 価格
+ genreid: ジャンルID
+ content: 内容
+ name: ジャンル名
+ memo: メモ
+ email: メールアドレス

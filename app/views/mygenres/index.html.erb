@@ -1,15 +1,14 @@
-<h1>Mygenres#index</h1>
-<p>ジャンル一覧</p>
-
-<table>
+<h1>ジャンル一覧</h1>
+<br>
+<table style="font-size:18px">
     <tr>
-        <th width=150px> ID </th>
+        <th width=50px> ID </th>
         <th width=150px >ジャンル名</th>
-        <th width=400px >メモ</th>
+        <th width=300px >メモ</th>
         <th width=50px></th>
         <th width=50px></th>
     </tr>
-<% @mygenre.each do|obj| %>
+<% @mygenre.each do |obj| %>
     <tr>
         <th><%= obj.id %></th>
         <td><%= obj.name %></td>
@@ -19,7 +18,8 @@
     </tr>
 <% end %>
 </table>
-<a href='/mygenres/add'>新規作成</a>
+<br>    
+<a href='/mygenres/add' style='font-size:18px'>[ 新規作成 ]</a>
 
 
 

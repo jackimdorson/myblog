@@ -1,35 +1,33 @@
-<h1>Myposts#delete</h1>
 
-<p>以下の内容を削除します</p>
-
-<table>
+<h1>本当に以下の内容を削除しますか？</h1>
+<br>
+<table style="font-size:18px; margin-bottom:10px;">
     <tr>
-        <th width=150px>ID</th>
-        <th width=150px>題名</th>
-        <th width=150px>著者</th>
-        <th width=150px>価格</th>
-        <th width=150px>ジャンルID</th>
-        <th width=300px>内容</th>
-        <th width=150px>画像</th>
+        <th width=100px>ID</th>
+        <td><%= @mypost.id %></td>
     </tr>
-<%= @mypost.each do |obj| %>
     <tr>
-        <th><%= obj.id %></th>
-        <th><%= obj.title %></th>
-        <th><%= obj.author %></th>
-        <th><%= obj.price %></th>
-        <th><%= obj.genre_id %></th>
-        <th><%= obj.content %></th>
-        <th></th>
+        <th>タイトル</th>
+        <td><%= @mypost.title %></td>
     </tr>
-    
-
-<%= form_for(@mypost, url:{controller:'myposts', action:'delete'}) do |form| %>
-    <tr>   
-        <th></th>
-        <td>  <%= form.submit '送信' %>  </td>
+    <tr>
+        <th>著者</th>
+        <td><%= @mypost.author %></td>
     </tr>
-<% end %>
+    <tr>
+        <th>価格</th>
+        <td><%= @mypost.price %></td>
+    </tr>
+     <tr>
+        <th>内容</th>
+        <td><%= @mypost.content %></td>
+    </tr>
 </table>
+<%= form_tag controller:'myposts', action:'delete' do %>
+        <%= hidden_field_tag "id", {value: @mypost.id } %>
+        <%= submit_tag "削除" %>
+ <% end %>
+ 
+<br>
 
-<a href='/myposts/add'>新規投稿</a>
+<a href='/myposts' style="font-size:18px">[ 戻る ]</a>
