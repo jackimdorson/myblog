@@ -1,16 +1,18 @@
-<h1>Mybooks#genre</h1>
-
-<a href='/mybooks'>POOKOFF</a>
-
-<% @mygenre.each do |obj| %>
-    <h3 class='top_title'><%= obj.name %></h3>
-     <p class='top_memo'><%= obj.memo %> </p>
+<h1>「<%= @mygenre.name %>」の投稿</h1>
+<br>
+<% @mypost.each do |obj| %>
+    <h1 class='top_title'><a href='/mybooks/show/<%=obj.id%>'><%= obj.title %></a></h1>
+     <p class='top_memo'><%= obj.content %> </p>
     <hr>
 <% end %>
-<div class='navigate'>
+
+<div class='navigate' style="text-align:center; margin-top:50px">
      <% if @page_num > 0 then %>
-         <a href='/mybooks/<%= @page_num -1 %>'> <<前のページ</a>
+         <a href='/mybooks/genre/<%= @mygenre.id %>/<%= @page_num -1 %>'> <<前のページ</a>
      <% end %>
+     &emsp;
+     &emsp;
+     &emsp;
      <span></span>
-     <a href='/mybooks/<%= @page_num + 1 %>'>次のページ>> </a>
+     <a href='/mybooks/genre/<%= @mygenre.id %>/<%= @page_num + 1 %>'>次のページ>> </a>
  </div>

@@ -20,7 +20,7 @@ def genre
          @page_num = params[:page].to_i
     end
      @mygenre = Mygenre.find params[:id]
-     @mypost = Mypost.where('mygenre_id = ?', params[:id])
+     @mypost = Mypost.where('genre_id = ?', params[:id])
      .order('created_at desc').offset(page_size * @page_num)
      .limit(page_size)
 end

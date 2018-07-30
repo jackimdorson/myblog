@@ -20,9 +20,10 @@ class MypostsController < ApplicationController
   def edit
     @mygenre = Mygenre.all
     @mypost = Mypost.find params[:id]
-    if request.patch? then
+    if request.patch? 
+      logger.debug "====>jack #{mypost_params[:genre_id]}"
       @mypost.update mypost_params
-      if @mypost.save then
+      if @mypost.save 
         goback
       end
     end

@@ -5,11 +5,11 @@
         <th width=50px>ID</th>
         <th width=200px>題名</th>
         <th width=150px>著者</th>
-        <th width=100px>価格</th>
-        <th width=150px>ジャンルID</th>
-        <th width=250px>内容</th>
-        <th width=150px>画像</th>
-        <th col="2"></th>
+        <th width=50px>価格</th>
+        <th width=80px>ジャンルID</th>
+        <th width=350px>内容</th>
+        <th width=50px></th>
+        <th width=50px></th>
     </tr>
 <% @mypost.each do |obj| %>
     <tr>
@@ -19,7 +19,6 @@
         <th><%= obj.price %></th>
         <th><%= obj.mygenre.name %></th>
         <th><%= obj.content %></th>
-        <th></th>
         <th><a href='/myposts/<%= obj.id %>'>編集</a></th>
         <th><a href='/myposts/delete/<%= obj.id %>'>削除</a></th>
     </tr>

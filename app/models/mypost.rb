@@ -1,5 +1,5 @@
 class Mypost < ApplicationRecord
-    has_many :mygenre
+    belongs_to :mygenre, foreign_key: :genre_id
 
     validates :title, :content, presence: {message: 'は必須項目です'}
     validates :price, :genre_id, numericality: {message: 'は数字で入力してください'}

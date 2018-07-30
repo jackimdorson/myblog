@@ -13,8 +13,8 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <%= stylesheet_link_tag    'mybooks', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'mybooks', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'mygenres', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'mygenres', 'data-turbolinks-track': 'reload' %>
 
 
   </head>
@@ -47,9 +47,9 @@
           閲覧
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: black;padding: 10px;">
-        <div style=margin-bottom:5px><a class="dropdown-item" href="/mygenres">▶︎伝記</a></div>
-        <div style=margin-bottom:5px><a class="dropdown-item" href="/mygenres">▶︎小説</a></div>
-        <div><a class="dropdown-item" href="/mygenres">▶︎その他</a></div>
+        <div style=margin-bottom:5px><a class="dropdown-item" href="/mybooks/genre/1">▶︎伝記</a></div>
+        <div style=margin-bottom:5px><a class="dropdown-item" href="/mybooks/genre/2">▶︎小説</a></div>
+        <div><a class="dropdown-item" href="/mybooks/genre/3">▶︎その他</a></div>
       </li>
       
     </ul>
