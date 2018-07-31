@@ -1,0 +1,22 @@
+h1 ジャンル編集
+br/
+- if @mygenre.errors.any?
+  ul
+    - @mygenre.errors.full_messages.each do |err|
+      li
+        = err
+table
+  = form_for(@mygenre, url:{controller:'mygenres', action:'edit'}) do |form|
+    tr
+      th ジャンル名
+      td
+        = form.text_field :name
+    tr
+      th メモ
+      td
+        = form.text_area :memo, {cols:40, rows:10}
+    tr
+      th
+      td
+        = form.submit '送信'
+a href="/mygenres"  戻る

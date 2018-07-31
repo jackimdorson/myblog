@@ -1,0 +1,50 @@
+h1 新規投稿
+br/
+- if @mypost.errors.any?
+  ul
+    - @mypost.errors.full_messages.each do |err|
+      li
+        = err
+table
+  = form_for(@mypost, url:{controller:'myposts', action:'add'}) do |form|
+    tr
+      th 題名
+      td
+        = form.text_field :title
+    tr
+      th 著者名
+      td
+        = form.text_field :author
+    tr
+      th 価格
+      td
+        = form.number_field :price
+    tr
+      th ジャンルID
+      td
+        = form.number_field :genre_id
+    tr
+      th 内容
+      td
+        = form.text_area :content, {cols:40, rows:10}
+    tr
+      th 画像
+      td
+        = form.file_field :picture
+    tr
+      th
+      td
+        = form.submit '送信'
+br
+  a href="/myposts" [ 戻る ]
+hr/
+h3 ジャンル一覧
+h5 style="color:red" ジャンルIDはこちらからお選び下さい
+table
+    tr
+        th width="30px"  ID
+        th ジャンル名
+    - @mygenre.each do |obj|
+        tr
+            td #{obj.id}
+            td #{obj.name}

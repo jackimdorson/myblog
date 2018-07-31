@@ -1,0 +1,24 @@
+- @mypost.each do |obj|
+  h1.top_title
+    a href="/mybooks/show/#{obj.id}"
+      =obj.title
+    p.top_content style="font-size:18px; margin-top:10px;"  
+      =obj.content
+      span.top_created
+        | &nbsp; &nbsp; &nbsp;
+        =obj.created_at
+  hr
+.navigate style=("text-align:center; margin-top:50px") 
+  - if @page_num > 0 
+    a href="/mybooks/#{@page_num -1}" <<前のページ
+    | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  a href="/mybooks/#{@page_num +1}" 次のページ>>
+
+
+
+
+
+
+
+
+ 

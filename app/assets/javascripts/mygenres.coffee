@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 window.delData = (id,name)->
-    if confirm('『' + name + '』のデータを削除しますか？')
-        document.location = '/mygenres/delete/' + id;
-    return false;
+      if confirm('『' + name + '』のデータを削除しますか？')
+          document.location = '/mygenres/delete/' + id;
+      return false;

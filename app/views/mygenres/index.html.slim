@@ -1,0 +1,20 @@
+h1 ジャンル一覧
+br
+table style="font-size:18px" 
+  tr
+    th width="50px"  ID
+    th width="150px"  ジャンル名
+    th width="300px"  メモ
+    th width="50px" 
+    th width="50px" 
+  - @mygenre.each do |obj|
+    tr
+      td #{obj.id}
+      td #{obj.name}
+      td #{obj.memo}
+      td
+        a href="/mygenres/#{obj.id}"  編集
+      td width="40px" 
+        a href="javascript:window.delData((#{obj.id}.to_s + '),' + "'".to_s + #{obj.name}.to_s + "'").html_safe"  削除
+
+a href="/mygenres/add" style="font-size:18px" [ 新規作成 ]

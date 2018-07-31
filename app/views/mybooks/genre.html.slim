@@ -1,0 +1,17 @@
+h1
+  | 「#{@mygenre.name}」の投稿
+br
+  - @mypost.each do |obj|
+    h1.top_title
+      a href="/mybooks/show/#{obj.id}"
+        =obj.title
+    p.top_memo
+        =obj.content
+  hr
+  .navigate style=("text-align:center; margin-top:50px") 
+    - if @page_num > 0 
+      a href="/mybooks/genre/#{@mygenre.id}/#{@page_num -1}"<<前のページ
+      | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    a href="/mybooks/genre/#{@mygenre.id}/#{@page_num +1}"次のページ>>
+
+
