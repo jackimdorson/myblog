@@ -2,25 +2,25 @@ class MybooksController < ApplicationController
   layout 'mybooks'
 
   def index
-    page_size = 5
-    @page_num = 0
-    if params[:page] != nil then
-      @page_num = params[:page].to_i
-    end
-    @mypost = Mypost.all.order('created_at desc').offset(page_size * @page_num).limit(page_size)
+    @page = (params[:page] || 1).to_i
+    @offset = number_of_entries_in_page * (@page - 1)
+    @mypost = Mypost.all.order('created_at desc').offset(@offset).limit(number_of_entries_in_page)
   end
 
   def genre
-    page_size = 5
-    @page_num = 0
-    if params[:page] != nil then
-       @page_num = params[:page].to_i
-    end
+    @page = (params[:page] || 1).to_i
+    @offset = number_of_entries_in_page * (@page - 1)
     @mygenre = Mygenre.find params[:id]
-    @mypost = Mypost.where('genre_id = ?', params[:id]).order('created_at desc').offset(page_size * @page_num).limit(page_size)
+    @mypost = @mygenre.posts.order('created_at desc').offset(@offset).limit(number_of_entries_in_page)
   end
 
   def show
     @mypost = Mypost.find params[:id]
+  end
+
+  private
+
+  def number_of_entries_in_page
+    5
   end
 end
