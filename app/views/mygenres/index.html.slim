@@ -13,8 +13,9 @@ table style="font-size:18px"
       td #{obj.name}
       td #{obj.memo}
       td
-        a href="/mygenres/#{obj.id}"  編集
+        = link_to  "編集", edit_mygenre_path(obj.id) 
       td width="40px" 
-        a href="javascript:window.delData((#{obj.id}.to_s + '),' + "'".to_s + #{obj.name}.to_s + "'").html_safe"  削除
-
-a href="/mygenres/add" style="font-size:18px" [ 新規作成 ]
+        = link_to "削除", mygenre_path(obj.id), method: :delete, data: { confirm: '削除します' }
+br
+= link_to '[ 新規作成 ]', new_mygenre_path
+            

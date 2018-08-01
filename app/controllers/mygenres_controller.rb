@@ -1,16 +1,24 @@
 class MygenresController < ApplicationController
   
-  layout = "mygenres"
-
   def index
     @mygenre = Mygenre.all.order('created_at desc')
   end
 
-  def add
+  def new
     @mygenre = Mygenre.new
-    if request.post? then
+    if request.post?
       @mygenre = Mygenre.new mygenre_params
-      if @mygenre.save then
+      if @mygenre.save
+        goback
+      end
+    end
+  end
+
+  def create
+    @mygenre = Mygenre.new
+    if request.post?
+      @mygenre = Mygenre.new mygenre_params
+      if @mygenre.save
         goback
       end
     end
@@ -18,15 +26,15 @@ class MygenresController < ApplicationController
 
   def edit
     @mygenre = Mygenre.find params[:id]
-    if request.patch? then
+    if request.patch?
       @mygenre.update mygenre_params
-      if @mygenre.save then
-        goback
-      end
+        if @mygenre.save
+           goback
+        end
     end
   end
 
-  def delete
+  def destroy
     Mygenre.find(params[:id]).destroy
     goback
   end

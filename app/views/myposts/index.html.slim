@@ -19,7 +19,8 @@ table
       th #{obj.mygenre.name}
       th #{obj.content}
       th
-        a href="/myposts/#{obj.id}"  編集
+        = link_to  "編集", edit_mypost_path(obj.id)
       th
-        a href="/myposts/delete/#{obj.id}"  削除
-a href="/myposts/add" style="font-size:18px"  [ 新規投稿 ]
+        = link_to "削除", "/myposts/destroy/#{obj.id}"
+
+= link_to  "[ 新規投稿 ]", new_mypost_path

@@ -58,3 +58,7 @@ gem 'rails-i18n'
 gem 'carrierwave'
 
 gem 'slim-rails'
+
+gem 'jquery-rails' 
+gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
