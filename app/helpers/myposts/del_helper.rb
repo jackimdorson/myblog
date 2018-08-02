@@ -1,0 +1,2 @@
+module Myposts::DelHelper
+end

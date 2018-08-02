@@ -4,6 +4,10 @@ class MypostsController < ApplicationController
       @mypost = Mypost.all.order('created_at desc')
   end
 
+  def show
+    @mypost = Mypost.find params[:id]
+  end
+
   def new
       @mygenre = Mygenre.all
       @mypost = Mypost.new 
@@ -26,15 +30,6 @@ class MypostsController < ApplicationController
         if @mypost.update mypost_params
           goback
         end
-  end
-
-  def del
-      @mypost = Mypost.find params[:id]
-  end
-
-  def destroy
-      @mypost = Mypost.find(params[:id]).destroy
-      goback
   end
 
   private

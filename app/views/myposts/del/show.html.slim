@@ -19,6 +19,6 @@ table style=("font-size:18px; margin-bottom:10px;")
 
 table style=("font-size:24px; margin-bottom:10px;") 
   tr
-    th = link_to "[はい]", mypost_path(@mypost.id), method: :delete, data: { confirm: '削除します' }
+    th = link_to "[はい]", myposts_del_path(@mypost.id), method: :delete, data: { confirm: '削除します' }
     th &ensp;&ensp;
     th = link_to  "[いいえ]", myposts_path
