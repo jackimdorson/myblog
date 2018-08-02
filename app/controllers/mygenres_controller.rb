@@ -6,37 +6,29 @@ class MygenresController < ApplicationController
 
   def new
     @mygenre = Mygenre.new
-    if request.post?
-      @mygenre = Mygenre.new mygenre_params
-      if @mygenre.save
-        goback
-      end
-    end
   end
 
   def create
-    @mygenre = Mygenre.new
-    if request.post?
-      @mygenre = Mygenre.new mygenre_params
-      if @mygenre.save
-        goback
+    @mygenres = Mygenre.new(mygenre_params)
+      if @mygenres.save
+         goback
       end
-    end
   end
 
   def edit
     @mygenre = Mygenre.find params[:id]
-    if request.patch?
-      @mygenre.update mygenre_params
-        if @mygenre.save
-           goback
-        end
-    end
+  end
+
+  def update
+      @mygenre = Mygenre.find params[:id]
+      if @mygenre.update(mygenre_params)
+         goback
+      end
   end
 
   def destroy
-    Mygenre.find(params[:id]).destroy
-    goback
+      Mygenre.find(params[:id]).destroy
+      goback
   end
 
   private
@@ -48,4 +40,5 @@ class MygenresController < ApplicationController
   def goback
     redirect_to "/mygenres"
   end
+
 end

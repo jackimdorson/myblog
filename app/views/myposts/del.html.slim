@@ -16,10 +16,9 @@ table style=("font-size:18px; margin-bottom:10px;")
   tr
     th 内容
     td #{@mypost.content}
-    
-= form_tag controller:'myposts', action:'destroy' do
-  = hidden_field_tag "id", {value: @mypost.id }
-  = submit_tag "削除"
-  
-br/
-a href="/myposts" style="font-size:18px"  [ 戻る ]
+
+table style=("font-size:24px; margin-bottom:10px;") 
+  tr
+    th = link_to "[はい]", mypost_path(@mypost.id), method: :delete, data: { confirm: '削除します' }
+    th &ensp;&ensp;
+    th = link_to  "[いいえ]", myposts_path

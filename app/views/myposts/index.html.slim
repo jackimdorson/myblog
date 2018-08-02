@@ -21,6 +21,6 @@ table
       th
         = link_to  "編集", edit_mypost_path(obj.id)
       th
-        = link_to "削除", "/myposts/destroy/#{obj.id}"
+        = link_to "削除", "/myposts/del/#{obj.id}"
 
 = link_to  "[ 新規投稿 ]", new_mypost_path

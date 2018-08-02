@@ -1,38 +1,40 @@
 class MypostsController < ApplicationController
   
   def index
-    @mypost = Mypost.all.order('created_at desc')
+      @mypost = Mypost.all.order('created_at desc')
   end
 
   def new
-    @mygenre = Mygenre.all
-    @mypost = Mypost.new 
-    if request.post? 
-      @mypost = Mypost.new mypost_params
-      if @mypost.save
-        goback
-      end
-    end
+      @mygenre = Mygenre.all
+      @mypost = Mypost.new 
+  end
+
+  def create
+      @mypost = Mypost.new(mypost_params)
+        if @mypost.save
+          goback
+        end
   end
 
   def edit
-    @mygenre = Mygenre.all
-    @mypost = Mypost.find params[:id]
-    if request.patch? 
-      logger.debug "====>jack #{mypost_params[:genre_id]}"
-      @mypost.update mypost_params
-        if @mypost.save 
+      @mygenre = Mygenre.all
+      @mypost = Mypost.find params[:id]
+  end
+
+  def update
+      @mypost = Mypost.find params[:id]
+        if @mypost.update mypost_params
           goback
         end
-    end
+  end
+
+  def del
+      @mypost = Mypost.find params[:id]
   end
 
   def destroy
-    @mypost = Mypost.find(params[:id])
-    if request.post?
-       @mypost.destroy
-       goback
-    end
+      @mypost = Mypost.find(params[:id]).destroy
+      goback
   end
 
   private

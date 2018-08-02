@@ -5,7 +5,7 @@ h1 投稿の編集
       li
         = err
 table
-  = form_for(@mypost, url:{controller:'myposts', action:'edit'}) do |form|
+  = form_for@mypost, url: mypost_path do |form|
     tr
       th 題名
       td
@@ -34,7 +34,9 @@ table
       th
       td
         = form.submit '送信'
-a href="/myposts"  [ 戻る ]
+
+= link_to  "[ 戻る ]", 'myposts_path'
+
 hr/
 h3 ジャンル一覧
 h5 style="color:red"  ジャンルIDはこちらからお選び下さい

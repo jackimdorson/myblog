@@ -6,7 +6,7 @@ br/
       li
         = err
 table
-  = form_for(@mygenre, url:{controller:'mygenres', action:'edit'}) do |form|
+  = form_for @mygenre, url: mygenre_path do |form|
     tr
       th ジャンル名
       td
@@ -19,4 +19,5 @@ table
       th
       td
         = form.submit '送信'
-= link_to "戻る", mygenres_path
+        
+= link_to '戻る', mygenres_path

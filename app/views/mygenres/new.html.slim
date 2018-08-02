@@ -1,13 +1,13 @@
 h1 ジャンル新規作成
 
 - if @mygenre.errors.any?
-  ul
-    - @mygenre.errors.full_messages.each do |err|
-      li
-        = err
+    ul
+      - @mygenre.errors.full_messages.each do |err|
+        li
+          = err
 
 table
-  = form_for(@mygenre, url:{controller:'mygenres', action:'new'}) do |form|
+  = form_for @mygenre, url: mygenres_path do |form|
     tr
       th ジャンル名
       td
@@ -20,4 +20,5 @@ table
       th
       td
         = form.submit '送信'
+        
 = link_to  "戻る", mygenres_path

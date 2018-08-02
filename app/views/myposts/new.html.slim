@@ -6,7 +6,7 @@ br/
       li
         = err
 table
-  = form_for(@mypost, url:{controller:'myposts', action:'new'}) do |form|
+  = form_for @mypost, url: myposts_path do |form|
     tr
       th 題名
       td
@@ -36,7 +36,7 @@ table
       td
         = form.submit '送信'
 br
-  a href="/myposts" [ 戻る ]
+  = link_to  "[ 戻る ]", myposts_path
 hr/
 h3 ジャンル一覧
 h5 style="color:red" ジャンルIDはこちらからお選び下さい
