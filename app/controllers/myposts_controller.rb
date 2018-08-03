@@ -1,7 +1,7 @@
 class MypostsController < ApplicationController
   
   def index
-      @mypost = Mypost.all.order('created_at desc')
+      @mypost = Mypost.page(params[:page]).per(25)
   end
 
   def show

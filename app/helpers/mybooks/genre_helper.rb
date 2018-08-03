@@ -1,0 +1,2 @@
+module Mybooks::GenreHelper
+end

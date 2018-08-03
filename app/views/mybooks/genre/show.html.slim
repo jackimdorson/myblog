@@ -1,0 +1,11 @@
+h1
+  | <span style=color:green;>「#{@mygenre.name}」</span>の投稿
+  - @mypost.each do |obj|
+    h1.top_title
+      a href="/mybooks/#{obj.id}"
+        =obj.title
+    p.top_memo style="font-size:18px; margin-top:10px;" 
+        =obj.content
+  hr
+  
+= paginate @mypost

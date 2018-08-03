@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  get "mybooks/home"
-  get 'mybooks/:id/:page',to: 'mybooks#genre'
 
+  get "mybooks/home"
   resources :mygenres, :myposts
   resources :mybooks, only:[:index, :show], controller: 'mybooks'
+
   namespace :myposts do
     resources :del, only:[:show, :destroy]
   end
 
-  
+  namespace :mybooks do
+    resources :genre, only:[:show]
+  end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
