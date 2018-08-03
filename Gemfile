@@ -53,14 +53,17 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'rails-i18n'
+gem 'rails-i18n'   #Internationalization
 
-gem 'carrierwave'
+gem 'carrierwave'   #Upload_Pictures
 
-gem 'slim-rails'
+gem 'slim-rails'  #erb_to_slim
 
-gem 'jquery-rails' 
+gem 'jquery-rails'   #Introduce_jquery
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 0.17.0'   #nextpage_tools
+
+gem 'bootstrap-sass'   #Introduce_bootstrap
+

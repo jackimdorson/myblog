@@ -28,12 +28,8 @@ table
       td
         = form.text_area :content, {cols:40, rows:10}
     tr
-      th 画像
-      td
-        = form.file_field :picture
-    tr
       th
-      td
+      td 
         = form.submit '送信'
 br
   = link_to  "[ 戻る ]", myposts_path
