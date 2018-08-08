@@ -33,12 +33,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'byebug'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3', '1.3.13'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails', "~> 4.0"
 end
 
 group :development do
@@ -66,6 +69,7 @@ gem 'jquery-turbolinks'
 gem 'kaminari', '~> 0.17.0'   #nextpage_tools
 
 gem 'bootstrap-sass'   #Introduce_bootstrap
+
 
 group :production do
   gem 'pg', '0.20.0'   
